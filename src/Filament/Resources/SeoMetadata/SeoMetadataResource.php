@@ -1,0 +1,47 @@
+<?php
+
+namespace Arqon\Seo\Filament\Resources\SeoMetadata;
+
+use Arqon\Seo\Filament\Resources\SeoMetadata\Pages\CreateSeoMetadata;
+use Arqon\Seo\Filament\Resources\SeoMetadata\Pages\EditSeoMetadata;
+use Arqon\Seo\Filament\Resources\SeoMetadata\Pages\ListSeoMetadata;
+use Arqon\Seo\Filament\Resources\SeoMetadata\Schemas\SeoMetadataForm;
+use Arqon\Seo\Filament\Resources\SeoMetadata\Tables\SeoMetadataTable;
+use Arqon\Seo\Models\SeoMetadata;
+use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
+use Filament\Tables\Table;
+use BackedEnum;
+use UnitEnum;
+
+class SeoMetadataResource extends Resource
+{
+    protected static ?string $model = SeoMetadata::class;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedGlobeAlt;
+    protected static ?string $recordTitleAttribute = 'title';
+    protected static string|UnitEnum|null $navigationGroup = 'SEO';
+    protected static ?string $navigationLabel = 'Metadata';
+    protected static ?string $modelLabel = 'SEO Metadata';
+    protected static ?string $pluralModelLabel = 'SEO Metadata';
+    protected static ?int $navigationSort = 1;
+
+    public static function form(Schema $schema): Schema
+    {
+        return SeoMetadataForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return SeoMetadataTable::configure($table);
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ListSeoMetadata::route('/'),
+            'create' => CreateSeoMetadata::route('/create'),
+            'edit' => EditSeoMetadata::route('/{record}/edit'),
+        ];
+    }
+}
