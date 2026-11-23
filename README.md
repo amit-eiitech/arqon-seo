@@ -1,5 +1,7 @@
 # Arqon SEO
 
+![Arqon Seo - SEO Management for Laravel and Filament](docs/images/arqon-seo-metadata.png)
+
 A reusable SEO metadata manager for Laravel 13 and Filament 5. It supports arbitrary Eloquent models through a polymorphic relationship, static named routes managed from Filament, global defaults, canonical URLs, robots directives, and Open Graph metadata.
 
 ## How it works
