@@ -105,6 +105,23 @@ The plugin registers the **SEO Metadata** resource and the **Global Settings** p
 ],
 ```
 
+The navigation group and package icons can also be customized in `config/arqon-seo.php`:
+
+```php
+'filament' => [
+    'navigation_group' => 'Site',
+],
+'icons' => [
+    'seo_metadata' => 'heroicon-o-globe-alt',
+    'seo_settings' => 'heroicon-o-adjustments-horizontal',
+    'view_page' => 'heroicon-o-arrow-top-right-on-square',
+    'create' => 'heroicon-o-plus',
+    'edit' => 'heroicon-o-pencil-square',
+    'delete' => 'heroicon-o-trash',
+    'delete_bulk' => 'heroicon-o-trash',
+],
+```
+
 ### 6. Add the Blade component to your layout
 
 Place the component inside the `<head>` of your main layout, after the charset and viewport declarations:

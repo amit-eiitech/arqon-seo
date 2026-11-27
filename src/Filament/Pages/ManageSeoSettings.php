@@ -3,6 +3,7 @@
 namespace Arqon\Seo\Filament\Pages;
 
 use Arqon\Seo\Settings\SeoSettings;
+use Arqon\Seo\Traits\HasPackageIcons;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -20,14 +21,23 @@ use BackedEnum;
 class ManageSeoSettings extends Page implements HasSchemas
 {
     use InteractsWithSchemas;
+    use HasPackageIcons;
 
-    protected static string|UnitEnum|null $navigationGroup = 'SEO';
     protected static ?string $navigationLabel = 'Global Settings';
     protected static ?string $title = 'Global SEO Settings';
     protected static string|null $slug = 'seo-settings';
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-cog-6-tooth';
     protected static ?int $navigationSort = 2;
     protected string $view = 'arqon-seo::filament.pages.manage-seo-settings';
+
+    public static function getNavigationIcon(): string|BackedEnum|null
+    {
+        return static::packageIcon('seo_settings');
+    }
+
+    public static function getNavigationGroup(): string|UnitEnum|null
+    {
+        return config('arqon-seo.filament.navigation_group', 'SEO');
+    }
 
     public ?array $data = [];
 

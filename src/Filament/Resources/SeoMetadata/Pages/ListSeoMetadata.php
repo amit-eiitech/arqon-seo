@@ -12,6 +12,9 @@ class ListSeoMetadata extends ListRecords
 
     protected function getHeaderActions(): array
     {
-        return [CreateAction::make()];
+        return [
+            CreateAction::make()
+                ->icon(SeoMetadataResource::packageIcon('create')),
+        ];
     }
 }

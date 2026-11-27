@@ -43,4 +43,22 @@ return [
         'navigation_sort' => 50,
         'show_settings_page' => true,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Package Icons
+    |--------------------------------------------------------------------------
+    |
+    | Customize navigation and action icons used across Filament resources.
+    | Values can be Heroicon enums (e.g. Heroicon::OutlinedDocumentText)
+    | or icon string identifiers (e.g. 'heroicon-o-document-text').
+    | When not configured, the package defaults from HasPackageIcons are used.
+    | When set to null, the icons will not be used.
+    | Check all available options in README.md file.
+    |
+    */
+    'icons' => [
+        // 'seo_metadata' => Heroicon::OutlinedGlobeAlt,
+        //  'seo_settings' => Heroicon::OutlinedCog6Tooth,
+    ],
 ];

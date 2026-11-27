@@ -2,6 +2,7 @@
 
 namespace Arqon\Seo\Filament\Resources\SeoMetadata\Tables;
 
+use Arqon\Seo\Filament\Resources\SeoMetadata\SeoMetadataResource;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\BulkActionGroup;
@@ -47,18 +48,21 @@ class SeoMetadataTable
             ->recordActions([
                 Action::make('view_page')
                     ->label('View page')
-                    ->icon('heroicon-o-arrow-top-right-on-square')
+                    ->icon(SeoMetadataResource::packageIcon('view_page'))
                     ->url(fn($record) => $record->getUrl())
                     ->openUrlInNewTab()
                     ->visible(fn($record) => filled($record->getUrl())),
                 ActionGroup::make([
-                    EditAction::make(),
-                    DeleteAction::make(),
+                    EditAction::make()
+                        ->icon(SeoMetadataResource::packageIcon('edit')),
+                    DeleteAction::make()
+                        ->icon(SeoMetadataResource::packageIcon('delete')),
                 ])
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
+                    DeleteBulkAction::make()
+                        ->icon(SeoMetadataResource::packageIcon('delete_bulk')),
                 ])
             ]);
     }
